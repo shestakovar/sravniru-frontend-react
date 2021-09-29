@@ -1,0 +1,8 @@
+.MyButton {
+    background-color: rgb(13, 209, 73);
+    color: white;
+    border: rgb(13, 209, 73);
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

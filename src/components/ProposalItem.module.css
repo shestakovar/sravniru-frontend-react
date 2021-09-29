@@ -1,0 +1,49 @@
+.proposal_item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dddede;
+}
+
+.proposal_item__col {
+    flex: 1 1 0;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.proposal_item__col_item {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.responsive_image {
+    max-width: 120px;
+    height: auto;
+}
+
+.img__wrapper {
+    text-align: center;
+}
+
+.cost__wrapper {
+    flex-grow: 1.5;
+}
+
+.more__license_num {
+    font-size: 0.8rem;
+    color: #8c8c8c;
+}
+
+.more__wrapper {
+    text-align: center;
+}
