@@ -3,7 +3,7 @@ import classes from './MyButton.module.css'
 
 interface MyBtnProps {
   text: string
-  className: string;
+  className?: string;
 }
 
 const MyButton: FC<MyBtnProps> = ( {text, className}) => {

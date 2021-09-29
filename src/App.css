@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-family: "Open Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 *, *::before, *::after {
