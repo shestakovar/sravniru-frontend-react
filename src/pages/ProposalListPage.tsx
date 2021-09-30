@@ -22,13 +22,13 @@ const ProposalListPage: FC = () => {
 
   useEffect(() => {
     fetchProposals();
-  }, []);
+  }, [page]);
 
   return (
     <>
       <List className={classes.proposal_list} items={proposalList}
             renderItem={(proposal: IProposal) => <ProposalItem proposal={proposal} key={proposal.id}/>}/>
-      <MyButton text='Загрузить еще'/>
+      <MyButton text='Загрузить еще' onClick={() => setPage(page + 1)}/>
     </>
   );
 };
