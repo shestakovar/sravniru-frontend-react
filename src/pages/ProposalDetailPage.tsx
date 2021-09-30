@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { IProposal } from "../types/types";
-import dataset from '../data'
+import ProposalService from "../services/ProposalService";
 import ProposalDetail from "../components/ProposalDetail";
 
 interface params {
@@ -13,12 +13,17 @@ const ProposalDetailPage: FC = () => {
   const id = parseInt(params.id);
   const [proposal, setProposal] = useState<IProposal>()
 
+  const fetchProposal = async () => {
+    const response = await ProposalService.getProposal(id);
+    setProposal(response);
+  }
+
   useEffect(() => {
-    setProposal(dataset[id]);
+    fetchProposal();
   }, [id])
   return (
     <div>
-      {proposal && <ProposalDetail proposal={proposal} />}
+      {proposal && <ProposalDetail proposal={proposal}/>}
     </div>
   );
 };

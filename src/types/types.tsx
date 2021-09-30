@@ -1,4 +1,5 @@
 interface IOrganization {
+  id: number; //Incompatible with origin dataset
   name: string;
   license: string;
   logo: string;
@@ -25,6 +26,7 @@ interface IFromMaybeTo {
 }
 
 interface IPeriod {
+  id: number; //Incompatible with origin dataset
   rate: IFromTo;
   termUnit: string;
   term: IFromTo;
@@ -39,6 +41,7 @@ interface IRate {
 }
 
 export interface IProposal {
+  id: number; //Incompatible with origin dataset
   name: string;
   alias: string;
   organization: IOrganization;
