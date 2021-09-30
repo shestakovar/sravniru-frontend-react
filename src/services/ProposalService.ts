@@ -9,9 +9,9 @@ interface paginatedProposalList {
 }
 
 export default class ProposalService {
-  static async getProposalList(limit: number = 10, offset: number = 0) {
+  static async getProposalList(limit: number = 10, offset: number = 0, sort?: string) {
     const proposals = await instance.get<paginatedProposalList>(`/proposals/`, {
-      params: { limit, offset }
+      params: { limit, offset, sort }
     });
     return proposals.data;
   }
