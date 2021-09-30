@@ -36,8 +36,8 @@ const ProposalItem: FC<ProposalItemProps> = ({ proposal }) => {
         <div className={`${classes.cost__wrapper} ${classes.proposal_item__col}`}>
           <div className={`cost__amount ${classes.title} ${classes.proposal_item__col_item}`}>
             {proposal.rate.creditAmount?.to
-              ? `${proposal.rate.creditAmount.from.toLocaleString()}  ${convertCurrency(proposal.rate.currency)} – ${proposal.rate.creditAmount.to.toLocaleString()} ${convertCurrency(proposal.rate.currency)}`
-              : `от ${proposal.rate.creditAmount.from.toLocaleString()} ${convertCurrency(proposal.rate.currency)}`
+              ? `${proposal.rate.creditAmount.from.toLocaleString()}${'\u00A0'}${convertCurrency(proposal.rate.currency)} – ${proposal.rate.creditAmount.to.toLocaleString()}${'\u00A0'}${convertCurrency(proposal.rate.currency)}`
+              : `от ${proposal.rate.creditAmount.from.toLocaleString()}${'\u00A0'}${convertCurrency(proposal.rate.currency)}`
             }
           </div>
           <div className={`cost__term ${classes.subtitle} ${classes.proposal_item__col_item}`}>
