@@ -5,11 +5,15 @@ import ProposalService from "../services/ProposalService";
 import List from "../components/List";
 import ProposalItem from "../components/ProposalItem";
 import MyButton from "../components/UI/MyButton/MyButton";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useTypedDispatch } from "../hooks/useTypedDispatch";
+import { setAppLoaded } from "../store/action-creators/app.action";
 
 const ProposalListPage: FC = () => {
   const [proposalList, setProposalList] = useState<IProposal[]>([]);
-  const [loadedAll, setLoadedAll] = useState<boolean>(false);
   const [limit, setLimit] = useState<number>(10);
+  const loadedAll = useTypedSelector(state => state.isLoadedAll);
+  const dispatch = useTypedDispatch()
 
   const fetchProposals = async (limit: number, offset: number) => {
     const response = await ProposalService.getProposalList(limit, offset);
@@ -18,11 +22,13 @@ const ProposalListPage: FC = () => {
 
   const loadAll = () => {
     fetchProposals(0, limit);
-    setLoadedAll(true);
+    dispatch(setAppLoaded());
   }
 
   useEffect(() => {
     fetchProposals(limit, 0);
+    if (loadedAll)
+      fetchProposals(0, limit);
   }, [limit]);
 
   if (proposalList.length === 0)
