@@ -3,12 +3,14 @@ import { IProposal } from '../types/types';
 import classes from './ProposalItem.module.css';
 import { convertCurrency, convertTime } from "../utils/print";
 import MyButton from "./UI/MyButton/MyButton";
+import { useHistory } from "react-router-dom";
 
 interface ProposalItemProps {
   proposal: IProposal;
 }
 
 const ProposalItem: FC<ProposalItemProps> = ({ proposal }) => {
+  const history = useHistory();
   return (
     <div className={classes.proposal_item}>
       <div className={`${classes.proposal_item__col}`}>
@@ -54,8 +56,7 @@ const ProposalItem: FC<ProposalItemProps> = ({ proposal }) => {
         <div className={`${classes.more__license_num} ${classes.proposal_item__col_item}`}>
           лиц. № {proposal.organization.license}
         </div>
-        <MyButton className={`${classes.proposal_item__col_item}`} text={"Перейти на сайт"}/>
-        <div className={`${classes.proposal_item__col_item} more__link_wrapper`}><a href="">Развернуть условия</a></div>
+        <MyButton className={`${classes.proposal_item__col_item}`} text="Подробнее" onClick={() => history.push(`/${proposal.id}`)}/>
       </div>
     </div>
   );

@@ -25,6 +25,9 @@ const ProposalListPage: FC = () => {
     fetchProposals(limit, 0);
   }, [limit]);
 
+  if (proposalList.length === 0)
+    return null;
+
   return (
     <>
       <List className={classes.proposal_list} items={proposalList}
