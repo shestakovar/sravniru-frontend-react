@@ -2,11 +2,27 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid #dddede;
+    flex-wrap: wrap;
+}
+
+.proposal_item__img_col {
+    flex: 1 1 0;
+}
+
+.proposal_item__descr_col {
+    flex: 3 1 30rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.proposal_item__button_col {
+    flex: 1 1 0;
+    min-width: 15rem;
 }
 
 .proposal_item__col {
     flex: 1 1 0;
-    padding: 15px 25px;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
