@@ -17,7 +17,7 @@ const ProposalListPage: FC = () => {
 
   const fetchProposals = async (limit: number, offset: number) => {
     const response = await ProposalService.getProposalList(limit, offset);
-    setProposalList([...proposalList, ...response.results]);
+    setProposalList(oldState => [...oldState, ...response.results]);
   }
 
   const loadAll = () => {
