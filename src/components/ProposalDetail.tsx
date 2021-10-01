@@ -35,6 +35,14 @@ const ProposalDetail: FC<ProposalDetailProps> = ({ proposal }) => {
           </tr>
 
           <tr>
+            <td>Первоначальный взнос</td>
+            <td>{proposal.rate.initialAmount?.to
+              ? `${proposal.rate.initialAmount.from.toLocaleString()}${'\u00A0'}% – ${proposal.rate.initialAmount.to.toLocaleString()}${'\u00A0'}%`
+              : `от ${proposal.rate.initialAmount.from.toLocaleString()}${'\u00A0'}%`
+            }</td>
+          </tr>
+
+          <tr>
             <td>Процент</td>
             <td>{proposal.rate.periods[0].rate.from === proposal.rate.periods[0].rate.to
               ? proposal.rate.periods[0].rate.from + '%'
