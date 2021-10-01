@@ -25,7 +25,7 @@ const ProposalListPage: FC = () => {
     setProposalList(oldState => [...oldState, ...response.results]);
   }
 
-  const loadAll = () => {
+  const loadMore = () => {
     fetchProposals(0, limit, querySort);
     dispatch(setMoreLoaded());
   }
@@ -37,10 +37,12 @@ const ProposalListPage: FC = () => {
 
   useEffect(() => {
     setProposalList([]);
-    fetchProposals(limit, 0, querySort);
     if (loadedAll)
-      fetchProposals(0, limit, querySort);
+      fetchProposals(0, 0, querySort);
+    else
+      fetchProposals(limit, 0, querySort);
   }, [limit, querySort]);
+
 
   if (proposalList.length === 0)
     return null;
@@ -51,7 +53,7 @@ const ProposalListPage: FC = () => {
       <MyButton text='По сумме' onClick={() => sort('sum')}/>
       <List className={classes.proposal_list} items={proposalList}
             renderItem={(proposal: IProposal) => <ProposalItem proposal={proposal} key={proposal.id}/>}/>
-      {!loadedAll && <MyButton text='Загрузить остальные' onClick={loadAll}/>}
+      {!loadedAll && <MyButton text='Загрузить остальные' onClick={loadMore}/>}
     </>
   );
 };
