@@ -1,2 +1,31 @@
+.whole_page {
+    margin: 20px;
+    background-color: white;
+}
+
 .proposal_list {
+}
+
+.sort_link {
+
+}
+
+.active {
+    cursor: default;
+    color: black;
+}
+
+.noactive {
+    cursor: pointer;
+    color: #8c8c8c;
+}
+
+.sort__wrapper {
+    border-radius: 4px 4px 0 0;
+    border: 1px solid #dddede;
+    padding: 10px;
+}
+
+.load_button {
+    width: 100%;
 }

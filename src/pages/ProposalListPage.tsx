@@ -48,13 +48,21 @@ const ProposalListPage: FC = () => {
     return null;
 
   return (
-    <>
-      <MyButton text='По ставке' onClick={() => sort('rate')}/>
-      <MyButton text='По сумме' onClick={() => sort('sum')}/>
+    <div className={classes.whole_page}>
+      <div className={classes.sort__wrapper}>Сортировать:
+        <span> </span>
+        <a className={`${classes.sort_link} ${querySort === 'rate' ? classes.active : classes.noactive}`}
+           onClick={() => sort('rate')}>по
+          ставке</a>
+        <span> </span>
+        <a className={`${classes.sort_link} ${querySort === 'sum' ? classes.active : classes.noactive}`}
+           onClick={() => sort('sum')}>по
+          сумме</a>
+      </div>
       <List className={classes.proposal_list} items={proposalList}
             renderItem={(proposal: IProposal) => <ProposalItem proposal={proposal} key={proposal.id}/>}/>
-      {!loadedAll && <MyButton text='Загрузить остальные' onClick={loadMore}/>}
-    </>
+      {!loadedAll && <MyButton text='Загрузить остальные' onClick={loadMore} className={classes.load_button}/>}
+    </div>
   );
 };
 
