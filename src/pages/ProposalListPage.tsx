@@ -45,9 +45,9 @@ const ProposalListPage: FC = () => {
     setFilter(tempObj);
 
     if (loadedAll)
-      fetchProposals(0, 0, querySort, filter);
+      fetchProposals(0, 0, querySort, tempObj);
     else
-      fetchProposals(limit, 0, querySort, filter);
+      fetchProposals(limit, 0, querySort, tempObj);
   }, [limit, location.search]);
 
   return (
