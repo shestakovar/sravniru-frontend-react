@@ -1,8 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { IProposal } from "../types/types";
 import ProposalService from "../services/ProposalService";
 import ProposalDetail from "../components/ProposalDetail";
+import classes from './ProposalDetailPage.module.css'
+import MyButton from "../components/UI/MyButton/MyButton";
 
 interface params {
   id: string;
@@ -11,7 +13,8 @@ interface params {
 const ProposalDetailPage: FC = () => {
   const params = useParams<params>();
   const id = parseInt(params.id);
-  const [proposal, setProposal] = useState<IProposal>()
+  const [proposal, setProposal] = useState<IProposal>();
+  const history = useHistory();
 
   const fetchProposal = async () => {
     const response = await ProposalService.getProposal(id);
@@ -22,7 +25,8 @@ const ProposalDetailPage: FC = () => {
     fetchProposal();
   }, [id])
   return (
-    <div>
+    <div className={classes.whole_page}>
+      <MyButton className={classes.btn} text='< Назад' onClick={history.goBack}/>
       {proposal && <ProposalDetail proposal={proposal}/>}
     </div>
   );

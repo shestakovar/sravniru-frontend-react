@@ -19,7 +19,8 @@
 table {
     border: 10px solid #cdcdcd;
     border-collapse: collapse;
-    margin-top: 1rem;
+    margin-top: 10px;
+    border-radius: 0 0 4px 4px;
 }
 
 tr:nth-child(even) {
@@ -38,4 +39,3 @@ td {
 tbody td {
     text-align: center;
 }
-

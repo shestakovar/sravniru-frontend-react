@@ -1,0 +1,11 @@
+.whole_page {
+    margin: 20px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 8rem;
+}

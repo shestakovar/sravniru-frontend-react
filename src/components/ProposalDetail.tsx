@@ -3,17 +3,14 @@ import { IProposal } from "../types/types";
 import { convertCurrency, convertTime } from "../utils/print";
 import MyButton from "./UI/MyButton/MyButton";
 import classes from './ProposalDetail.module.css'
-import { useHistory } from "react-router-dom";
 
 interface ProposalDetailProps {
   proposal: IProposal
 }
 
 const ProposalDetail: FC<ProposalDetailProps> = ({ proposal }) => {
-  const history = useHistory();
   return (
     <>
-      <MyButton text='Назад' onClick={history.goBack}/>
       <div className={classes.table_wrapper}>
         <table className={classes.table}>
           <tbody>
@@ -32,8 +29,8 @@ const ProposalDetail: FC<ProposalDetailProps> = ({ proposal }) => {
           <tr>
             <td>Сумма</td>
             <td>{proposal.rate.creditAmount?.to
-              ? `${proposal.rate.creditAmount.from.toLocaleString()}  ${convertCurrency(proposal.rate.currency)} – ${proposal.rate.creditAmount.to.toLocaleString()} ${convertCurrency(proposal.rate.currency)}`
-              : `от ${proposal.rate.creditAmount.from.toLocaleString()} ${convertCurrency(proposal.rate.currency)}`
+              ? `${proposal.rate.creditAmount.from.toLocaleString()}${'\u00A0'}${convertCurrency(proposal.rate.currency)} – ${proposal.rate.creditAmount.to.toLocaleString()}${'\u00A0'}${convertCurrency(proposal.rate.currency)}`
+              : `от ${proposal.rate.creditAmount.from.toLocaleString()}${'\u00A0'}${convertCurrency(proposal.rate.currency)}`
             }</td>
           </tr>
 
