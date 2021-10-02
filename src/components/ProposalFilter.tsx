@@ -46,11 +46,11 @@ const ProposalFilter: FC<Props> = ({ filter, setFilter }) => {
       <form onSubmit={submit} className={classes.form}>
         <div className={classes.form_group}>
           <label htmlFor="cost" className={classes.input_label}>Стоимость недвижимости</label>
-          <input id="cost" className={classes.input} type="number" value={filter.creditAmount} onChange={ e => setFilter({...filter, creditAmount: e.target.value})}/>
+          <input id="cost" className={classes.input} type="number" placeholder="0" value={filter.creditAmount} onChange={ e => setFilter({...filter, creditAmount: e.target.value})}/>
         </div>
         <div className={classes.form_group}>
           <label htmlFor="initial" className={classes.input_label}>Первоначальный взнос</label>
-          <input id="initial" className={classes.input} type="number" value={filter.initialAmount} onChange={ e => setFilter({...filter, initialAmount: e.target.value})}/>
+          <input id="initial" className={classes.input} type="number" placeholder="0" value={filter.initialAmount} onChange={ e => setFilter({...filter, initialAmount: e.target.value})}/>
         </div>
         <div className={classes.form_group}>
           <label htmlFor="term" className={classes.input_label}>Срок</label>
