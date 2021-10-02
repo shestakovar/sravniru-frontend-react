@@ -7,10 +7,6 @@
 .proposal_list {
 }
 
-.sort_link {
-    margin-right: 10px;
-}
-
 .active {
     cursor: default;
     color: black;
@@ -26,7 +22,8 @@
     border: 1px solid #dddede;
     padding: 10px;
     display: flex;
-    gap: 10px
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .load_button {
@@ -37,4 +34,10 @@
 .filter_wrapper {
     background-color: white;
     margin-top: 0;
+}
+
+.sort_options__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
