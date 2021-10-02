@@ -58,14 +58,15 @@ const ProposalListPage: FC = () => {
       <div className={classes.list_wrapper}>
 
         <div className={classes.sort__wrapper}>Сортировать:
+          <div className={classes.sort_options__wrapper}>
+            <a className={`${classes.sort_link} ${querySort === 'rate' ? classes.active : classes.noactive}`}
+               onClick={() => sort('rate')}>по
+              ставке</a>
 
-          <a className={`${classes.sort_link} ${querySort === 'rate' ? classes.active : classes.noactive}`}
-             onClick={() => sort('rate')}>по
-            ставке</a>
-
-          <a className={`${classes.sort_link} ${querySort === 'sum' ? classes.active : classes.noactive}`}
-             onClick={() => sort('sum')}>по
-            сумме</a>
+            <a className={`${classes.sort_link} ${querySort === 'sum' ? classes.active : classes.noactive}`}
+               onClick={() => sort('sum')}>по
+              сумме</a>
+          </div>
         </div>
         <List className={classes.proposal_list} items={proposalList}
               renderItem={(proposal: IProposal) => <ProposalItem proposal={proposal} key={proposal.id}/>}/>
